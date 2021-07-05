@@ -1,0 +1,31 @@
+
+.place-popup{
+  /* width:100vw; */
+  /* height:70vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  /* background-color: aquamarine; */
+}
+
+.head-div{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: blue; */
+  width: 100%;
+  padding: 1rem;
+  align-items: center;
+}
+
+.span-text{
+  font-weight: bolder;
+  /* color: #F5AA00; */
+}
+
+.button-holder{
+  margin-top: 2rem;
+}
+
+

@@ -1,0 +1,142 @@
+<div class="top-div">
+  <div class="content-div">
+    <div class="heading">Hospital List</div>
+
+    <div style="padding: 1rem">
+      <button color="primary" mat-raised-button (click)="sortByName()">
+        Sort By Name
+      </button>
+    </div>
+
+    <div *ngIf="fetchHospitalStatus == 'FETCHED'">
+      <table>
+        <tr>
+          <th>Hospital Name</th>
+          <th>Contact No.</th>
+          <th>Actions</th>
+        </tr>
+        <tr *ngFor="let hospital of hospital_list; let i = index">
+          <td>{{ hospital.hospitalname }}</td>
+          <td>{{ hospital.contactnumber }}</td>
+          <td
+            class="action-holder"
+            *ngIf="hospital.deleting != true && hospital.updating != true"
+          >
+            <a (click)="routeToDepartments(hospital.hospitalname)">View</a>
+            <a (click)="editHospital(hospital); hospital.updating = true"
+              >Edit</a
+            >
+            <a (click)="hospital.deleting = true; deleteHospital(hospital)"
+              >Delete</a
+            >
+          </td>
+          <td
+            *ngIf="hospital.deleting"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+            "
+          >
+            <mat-spinner [diameter]="20"></mat-spinner>
+            Deleting
+          </td>
+          <td
+            *ngIf="hospital.updating"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+            "
+          >
+            <mat-spinner [diameter]="20"></mat-spinner>
+            Updating
+          </td>
+        </tr>
+      </table>
+
+      <div class="input-holder" [formGroup]="hospital_form">
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="name"
+            placeholder="Enter name"
+            type="text"
+          />
+          <mat-error *ngIf="name?.errors">Please enter a valid name.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="contact"
+            placeholder="Enter number"
+            type="number"
+          />
+          <mat-error *ngIf="contact?.errors"
+            >Please enter a valid 10 digit number.</mat-error
+          >
+        </mat-form-field>
+
+        <div *ngIf="addingStatus != 'ADDING'">
+          <a
+            class="material-icons activity-icons"
+            (click)="createNewHospital()"
+          >
+            <mat-icon>save</mat-icon>
+          </a>
+          <a
+            class="material-icons activity-icons"
+            (click)="hospital_form.reset()"
+          >
+            <mat-icon>restart_alt</mat-icon>
+          </a>
+        </div>
+
+        <div
+          *ngIf="addingStatus == 'ADDING'"
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+          "
+        >
+          <mat-spinner [diameter]="20"></mat-spinner>
+          <span>Adding</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- handling errors -->
+
+    <!-- <div *ngIf="fetchHospitalStatus=='FETCHED' && hospital_list.length<=0">
+      <span >No hospitals found.</span>
+    </div> -->
+
+    <div *ngIf="fetchHospitalStatus == 'FETCHING'" style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  ">
+      <mat-spinner [diameter]="20"></mat-spinner>
+      <span>Loading Hospitals...</span>
+    </div>
+
+    <div *ngIf="fetchHospitalStatus == 'ERROR'">
+      <span style="color: grey; font-weight: bold"
+        >Oops! Some Error occured while loading .</span
+      ><br />
+      <button
+        mat-stroked-button
+        style="color: grey; margin-top: 1rem"
+        (click)="ngOnInit()"
+      >
+        Retry
+      </button>
+    </div>
+  </div>
+</div>

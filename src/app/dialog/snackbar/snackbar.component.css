@@ -1,0 +1,87 @@
+.snackbar{
+  /* width: 160px; */
+  /* height: 35px; */
+  /* background-color: #FFA500; */
+  /* display: flex;
+  justify-content: flex-start;
+  align-items: center; */
+  /* text-align: left; */
+  /* padding: 8px; */
+  /* padding-right: 8px; */
+  /* padding:10px; */
+
+
+
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.text{
+  color: white;
+  font-weight: bolder;
+
+}
+
+
+.done-icon{
+  width: 24px !important;
+  height: 24px;
+  border-radius: 50%;
+  background-color: green;
+  border: green;
+
+
+  /* margin-right: 1rem; */
+  /* position: absolute;
+  top:-15px;
+  left: -10px; */
+  align-self: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* z-index: 2;; */
+ }
+
+
+ .check-span{
+  color: white;
+  font-size: 1rem;
+  font-weight: bolder;
+ }
+
+
+
+
+.not-done-icon{
+  width: 24px !important;
+  height: 24px;
+  border-radius: 50%;
+  background-color: red;
+  border: red;
+
+
+  /* margin-right: 1rem; */
+  /* position: absolute;
+  top:-15px;
+  left: -10px; */
+  align-self: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* z-index: 2;; */
+ }
+
+
+ .cross-span{
+  color: white;
+  font-size: 1rem;
+  font-weight: bolder;
+ }

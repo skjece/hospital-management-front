@@ -1,0 +1,46 @@
+<div class="place-popup">
+  <div class="head-div">
+    <div class="div-a">
+      <span class="span-text">Edit</span>
+    </div>
+
+    <a class="div-b" (click)="closeDialog()"> X </a>
+  </div>
+
+  <div class="input-holder" [formGroup]="hospital_form_update">
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="name"
+        placeholder="Enter name"
+        type="text"
+      />
+      <mat-error *ngIf="name?.errors">Please enter a valid name.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="contact"
+        placeholder="Enter number"
+        type="number"
+      />
+      <mat-error *ngIf="contact?.errors"
+        >Please enter a valid 10 digit number.</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div class="button-holder">
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      [disabled]="hospital_form_update.invalid"
+      [mat-dialog-close]
+      (click)="updateHospitalInfo()"
+    >
+      <span> Update </span>
+    </button>
+  </div>
+</div>

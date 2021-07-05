@@ -1,0 +1,52 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: aliceblue;
+}
+
+.top-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-div {
+  /* position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); */
+  max-width: 1000px;
+}
+
+.heading {
+  background-color: gainsboro;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.action-holder {
+  display: flex;
+}
+
+.action-holder > * {
+  padding: 0.5rem 1rem;
+}
+
+.input-holder {
+  background-color: gainsboro;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}

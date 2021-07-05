@@ -1,0 +1,14 @@
+<div class="snackbar">
+  <div class="container">
+    <div>
+      <span class="text">{{ data.text }}</span>
+    </div>
+
+    <div class="done-icon" *ngIf="data.issuccess">
+      <span class="check-span">&#10003;</span>
+    </div>
+    <div class="not-done-icon" *ngIf="!data.issuccess">
+      <span class="cross-span">x</span>
+    </div>
+  </div>
+</div>
